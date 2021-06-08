@@ -1,0 +1,56 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: normal;
+}
+body {
+  padding: 0%;
+  margin: 0%;
+  background: linear-gradient(to right, #00aaff, #00ff6c);
+}
+.calculator-grid {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  grid-template-columns: repeat(4, 100px); /*Repeat 4 times each is 100px*/
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px); /*at minimum it will take 120px while at maximum it will take as much space at it needs*/
+}
+.calculator-grid > button {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background: rgba(250, 255, 255, 0.75);
+}
+.calculator-grid > button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+.calculator-grid > button:active {
+  transform: scale(1.1);
+}
+.calculator-grid .span-two {
+  grid-column: span 2; /*this is same as grid-column-start: 1/3 but we use 2 means that it will take 2 grid column for the span-two class, means both are gonna get two column in here*/
+}
+.output {
+  grid-column: span 4;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-direction: column;
+  padding: 10px;
+  word-wrap: break-word; /*this will break the word in the middle*/
+  word-break: break-all;
+}
+.output .previous-operand {
+  color: rgb(131, 131, 131);
+  font-size: 1.5rem;
+}
+.output .current-operand {
+  color: white;
+  font-size: 2.5rem;
+}
